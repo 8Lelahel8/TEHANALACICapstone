@@ -1,0 +1,99 @@
+<% layout("./layouts/boilerplate")%>  
+  
+    <div>
+        <a href="/bCorps">Go Back To All B Corporations</a>
+        <img style="width: 400px" src="<%=bCorp.image%>" alt="">
+    </div>
+
+    <!-- Show Details -->
+
+    <h1> <%= bCorp.corpName %></h1>
+
+    <!-- <p><%= bCorp.image %></p> -->
+
+    <h3>Date Founded</h3>
+    <p><%= bCorp.dateFounded %></p>
+
+    <h3>Date Certified</h3>
+    <p><%= bCorp.dateCertified %></p>
+
+    <h3>CEO</h3>
+    <p><%= bCorp.ceo %></p>
+
+    <h3>B Corporation Impact Score</h3>
+    <p><%= bCorp.bCorpScore %></p>
+
+    <h3>Location</h3>
+    <p><%= bCorp.location %></p>
+
+    <h3>Description</h3>
+    <p><%= bCorp.description %></p>
+
+    <h3>Details</h3>
+    <p><%= bCorp.details  %></p>
+
+    <h3>Individual Overall Experience</h3>
+    <p><%= bCorp.overallExperience %></p>
+
+    <p>Submitted by: <%= bCorp.submittedBy.username  %> </p>
+
+    <!-- Review Form -->
+    <% if(user) {%>
+
+    <h2>Leave a Review</h2>
+
+    <form class="needs-validation" action="/bCorps/<%=bCorp.id%>/reviews" method="POST" novalidate>
+        <div>
+            <label class="form-label" for="rating">Rating</label>
+            <input class="form-range" name="review[rating]" type="range" min="0" max="5" step="1" required>
+        </div>
+        <div>
+            <label class="form-label" for="body">Review</label>
+            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="5" required></textarea>
+        </div>
+
+        <button>Submit</button>
+
+    </form>
+    <% } %>
+
+    <a href="/bCorps">Back to All B Corporations</a>
+
+    <% if(user && bCorp.submittedBy.equals(user) ) { %>
+        
+        <div>
+            <button>
+                <a href="/bCorps/<%=bCorp.id%>/edit">Edit <%=bCorp.corpName%></a>
+            </button> 
+        </div>
+    
+    <form action="/bCorps/<%=bCorp.id%>/delete?_method=DELETE" method="POST">
+    
+        <button>Delete B Corporation</button>
+
+    </form>
+
+<% } %>
+
+<div>
+    <h3>Reviews</h3>
+
+    <% for (let reviews of bCorp.reviews) {%>
+    
+        <div>
+            <p>Rating: <%=reviews.rating%></p>
+            <p>User: <%=reviews.author.username%></p>
+            <p>Reviews: <%=reviews.body%></p>
+
+        <% if(user && reviews.author.equals(user)) {%>
+
+        <form action="/bCorps/<%=bCorp.id%>/reviews/<%=reviews.id%>?_method=delete" method="POST">
+        <button>Delete</button>
+        </form>
+        <%}%>
+    </div>
+    <%}%>
+</div>
+
+
+    

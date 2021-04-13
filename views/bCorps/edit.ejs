@@ -1,0 +1,86 @@
+<% layout("./layouts/boilerplate")%> 
+
+    <h1>Edit <%=bCorp.corpName%></h1>
+
+    <div>
+        <a href="/bCorps">Go Back To All B Corporations</a>
+    </div>
+    
+	<!-- corpName: String,
+    image: String,
+    dateFounded: String,
+    dateCertified: String,
+    ceo: String,
+    bCorpScore: String,
+    location: String,
+    description: String, 
+    details: String,    -->
+
+	<div class="col-6 offset-3">
+	
+		<form class="needs-validation" action="/bCorps/<%=bCorp.id%>/?_method=PUT" method="POST" novalidate>
+		
+			<div class="mb-3">
+				<label class="form-label" for="name">B Corporation Name</label>
+				<input class="form-control" type="text" id="name" name="bCorp[corpName]" value="<%= bCorp.corpName %>" required>
+		
+				<!-- // we are using the square brackets in the name so that we can easily send data to our mongoose method without reformatting the body. -->
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="dateFounded">Date Founded</label>
+				<input class="form-control" type="text" id="dateFounded" name="bCorp[dateFounded]" value="<%= bCorp.dateFounded %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="dateCertified">Date Certified</label>
+				<input class="form-control" type="text" id="dateCertified" name="bCorp[dateCertified]" value="<%= bCorp.dateCertified %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="ceo">CEO</label>
+				<input class="form-control" type="text" id="ceo" name="bCorp[ceo]" value="<%= bCorp.ceo %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="bCorpScore">B Impact Score</label>
+				<input class="form-control" type="text" id="bCorpScore" name="bCorp[bCorpScore]" value="<%= bCorp.bCorpScore %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="location">Location</label>
+				<input class="form-control" type="text" id="location" name="bCorp[location]" value="<%=bCorp.location %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="description">Description</label>
+				<input class="form-control" type="text" id="description" name="bCorp[description]" value="<%= bCorp.description %>"required>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="description">Details</label>
+				<input class="form-control" type="text" id="description" name="bCorp[details]" value="<%= bCorp.details %>" required>
+			</div>
+		
+			<div class="mb-3"> 
+				<label class="form-label" for="overallExperience">Overall Experience</label>
+				<select name="bCorp[overallExperience]" id="overallExperience" value="<%= bCorp.overallExperience %>">
+					<option value="Excellent">Excellent</option>
+					<option value="Great">Great</option>
+					<option value="Good">Good</option> 
+					<option value="Fair">Fair</option>
+					<option value="Bad">Bad</option>
+					<option value="Terrible">Terrible</option>
+				</select>
+			</div>
+		
+			<div class="mb-3">
+				<label class="form-label" for="bCorp">B Corporation Image</label>
+				<input class="form-control" type="text" id="image" name="bCorp[image]" value="<%= bCorp.image %>" required>
+			</div>
+		
+			<div class="mb-3">
+				<button>Submit</button>
+			</div>
+
+<a href="/bCorps/<%= bCorp.id%>">Go back to <%= bCorp.corpName %></a>

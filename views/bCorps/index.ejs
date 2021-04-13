@@ -1,0 +1,10 @@
+<% layout("./layouts/boilerplate")%>  
+    
+    <h1 class="text-center text-3xl my-8">All B Corporations</h1>
+    
+
+    <ul>
+        <% for (let bCorp of bCorps) { %>
+            <li><a href="bCorps/<%= bCorp.id %>"><%= bCorp.corpName%></a></li>
+        <% } %>
+    </ul>

@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://images.angelpub.com/2014/35/26225/bcorp.jpg);
+    background: url(https://6efb7f1dc6c1e70373c8-f15e8c1f00cd79185c9828f8a3936bb4.ssl.cf2.rackcdn.com/Screen-Shot-2017-01-25-at-12.47.50-PM.d4899f96e1858d7c1e61787a9f72ea96.png);
+    } 
+
+/*    
+.image {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: 
+    url(https://6efb7f1dc6c1e70373c8-f15e8c1f00cd79185c9828f8a3936bb4.ssl.cf2.rackcdn.com/Screen-Shot-2017-01-25-at-12.47.50-PM.d4899f96e1858d7c1e61787a9f72ea96.png);
+} */
+
+/* .login-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.login-form h1 {
+    text-align: center;
+    margin: 24px 0;
+    font-size: 48px;
+}
+
+.login-form button {
+    display: inline-block;
+    width: 100%;
+    background-color: chartreuse;
+    padding: 12px 24px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 20px
+}
+
+.login-form label {
+    font-size: 20px;
+    color: #173777;
+}
+
+.login-form input {
+    padding: 20px;
+    font-size: 24px;
+} */
