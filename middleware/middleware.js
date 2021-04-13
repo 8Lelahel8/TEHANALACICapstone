@@ -14,7 +14,6 @@ module.exports.isReviewCreator = async (req, res, next) => {
 	next();
 };
 
-
 // User Authentication 
 // Users must be signed in for certain actions
 module.exports.isAuthenticated = (req, res, next) => {
@@ -30,7 +29,7 @@ module.exports.isAuthenticated = (req, res, next) => {
 // Only a creator can edit and delete
 module.exports.isCreator = async (req, res, next) => {
 	const { id } = req.params;
-	const bCorp = await bCorp.findById(id);
+	const bCorp = await BCorp.findById(id);
 	if (!bCorp.submittedBy.equals(req.user._id)) {
 		req.flash('error', 'You are not authorized to do that');
 		return res.redirect(`/bCorps/${id}`);

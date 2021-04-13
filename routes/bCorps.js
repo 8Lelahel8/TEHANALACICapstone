@@ -101,7 +101,7 @@ router.get(
 	asyncCatcher( async (req, res) => {
 	const { id } = req.params;
 	const bCorp = await BCorp.findById(id);
-	res.flash('error', 'B Corporation does not exist')
+	req.flash('error', 'B Corporation does not exist')
 	res.render('bCorps/edit', { bCorp });
 	})
 );
