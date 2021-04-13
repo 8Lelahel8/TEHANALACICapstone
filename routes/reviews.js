@@ -32,7 +32,6 @@ router.post(
 	const review = new Review(req.body.review);
 	review.author = req.user._id;
 	bCorp.reviews.push(review);
-	console.log(bCorp)
 	await bCorp.save();
 	await review.save();
     req.flash('Success', 'Your review was successfully created!');
