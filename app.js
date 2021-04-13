@@ -116,7 +116,7 @@ app.use((req, res, next) => {
 
 // --------Index Route--------
 app.get('/', (req, res) => {
-	res.render('Home');
+	res.render('home');
 });
 
 // --------BCorp Routes--------
